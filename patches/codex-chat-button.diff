@@ -2,17 +2,18 @@ Index: code-server/lib/vscode/src/vs/workbench/contrib/chat/browser/agentSession
 ===================================================================
 --- code-server.orig/lib/vscode/src/vs/workbench/contrib/chat/browser/agentSessions/experiments/agentTitleBarStatusWidget.ts
 +++ code-server/lib/vscode/src/vs/workbench/contrib/chat/browser/agentSessions/experiments/agentTitleBarStatusWidget.ts
-@@ -72,7 +72,8 @@ type AgentStatusClickClassification = {
+@@ -72,7 +72,9 @@ type AgentStatusClickClassification = {
  };
  
  // Action IDs
 -const TOGGLE_CHAT_ACTION_ID = 'workbench.action.chat.toggle';
-+// code-server fork: the title bar sparkle button opens the Codex extension panel.
-+const OPEN_CODEX_ACTION_ID = 'chatgpt.openSidebar';
++// code-server fork: the title bar sparkle button opens Codex in the main editor area
++// (command provided by the ntch.codex-main-window extension).
++const OPEN_CODEX_ACTION_ID = 'ntch.codex.openMain';
  const QUICK_OPEN_ACTION_ID = 'workbench.action.quickOpenWithModes';
  
  // Storage key for filter state
-@@ -863,8 +864,8 @@ export class AgentTitleBarStatusWidget e
+@@ -863,8 +865,8 @@ export class AgentTitleBarStatusWidget e
  		// Get menu actions for dropdown with proper group separators
  		const menuActions: IAction[] = Separator.join(...this._chatTitleBarMenu.getActions({ shouldForwardArgs: true }).map(([, actions]) => actions));
  
