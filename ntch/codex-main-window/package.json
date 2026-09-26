@@ -1,0 +1,41 @@
+{
+  "name": "codex-main-window",
+  "displayName": "Codex in Main Window",
+  "publisher": "ntch",
+  "version": "0.1.0",
+  "description": "Open Codex as an editor tab in the main area instead of the sidebar.",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionDependencies": [
+    "openai.chatgpt"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "ntch.codex.openMain",
+        "title": "Open Codex in Main Window",
+        "category": "Codex"
+      }
+    ],
+    "configuration": {
+      "title": "Codex in Main Window",
+      "properties": {
+        "ntch.codex.openOnStartup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Open Codex in the main editor area when the window starts."
+        },
+        "ntch.codex.hideSidebarPanel": {
+          "type": "boolean",
+          "default": true,
+          "description": "Close the secondary sidebar after opening Codex in the main area."
+        }
+      }
+    }
+  }
+}
